@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Pessoa } from '../pessoa.model';
 
 @Component({
   selector: 'app-detalhar',
@@ -7,17 +9,24 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class DetalharComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activedRoute: ActivatedRoute) { }
 
-  @Input() pessoa: any;
+  @Input() pessoa: Pessoa | null | undefined;
 
   @Output() alterarPessoa = new EventEmitter();
 
   ngOnInit(): void {
+   
+    let id = this.activedRoute.snapshot.params['id'];
+   
+    console.log('Parametro id na rota : ', id);
+   
+    if (id) {
+      this.pessoa = new Pessoa('Teste', 'Aleatorio');
+    }
   }
 
   emitirPessoa() {
     this.alterarPessoa.emit({ nome: 'Samuel', sobrenome: 'Guedes' });
-    console.log('Evento emitir pessoa', this.pessoa);
   }
 }

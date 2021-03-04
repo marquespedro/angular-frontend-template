@@ -1,6 +1,7 @@
 <div>
-    <h2>Component Detalhar Pessoa</h2>
-    <p>{{pessoa.nome}}</p>
-    <p>{{pessoa.sobrenome}}</p>
+    <h1>Detalhar Pessoa</h1>
+    <p>Nome : {{pessoa!.nome}} {{pessoa!.sobrenome}}</p>
     <button (click)="emitirPessoa()">Emitir Evento</button>
+    <br/>
+    <a [routerLink]="['/detalhar', pessoa!.id]">Detalhar</a>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Pessoa } from '../pessoa.model';
 
 @Component({
   selector: 'app-formulario',
@@ -10,8 +11,8 @@ export class FormularioComponent implements OnInit {
 
   formularioPessoa: FormGroup = this.construirFormulario();
 
-  pessoaSalva: any = null;
-  arrayPessoas : any = [] = [];
+  pessoaSalva: Pessoa | undefined | null;
+  arrayPessoas: any = [] = [];
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -20,12 +21,13 @@ export class FormularioComponent implements OnInit {
   }
 
   salvar() {
-    this.pessoaSalva = this.formularioPessoa.value;
+    this.pessoaSalva = new Pessoa(this.formularioPessoa.value.nome, this.formularioPessoa.value.sobrenome);
+    this.pessoaSalva.id = 10;
     this.arrayPessoas.push(this.pessoaSalva);
+    this.formularioPessoa.reset();
   }
 
   limparFormulario() {
-    console.log('limpar form');
     this.formularioPessoa.reset();
   }
 

@@ -8,7 +8,7 @@
         <input formControlName="nome">
         <label>Sobrenome:</label>
         <input formControlName="sobrenome">
-        <button>Salvar</button>
+        <button [disabled]="formularioPessoa.invalid" >Salvar</button>
     </form>
     <button (click)="limparFormulario()">Limpar</button>
 </div>
