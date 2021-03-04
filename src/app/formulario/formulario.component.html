@@ -1,0 +1,18 @@
+<!-- {{formularioPessoa.value | json}} -->
+
+<h1>Formulario Pessoa</h1>
+
+<div>
+    <form [formGroup]="formularioPessoa" (ngSubmit)="salvar()">
+        <label>Nome:</label>
+        <input formControlName="nome">
+        <label>Sobrenome:</label>
+        <input formControlName="sobrenome">
+        <button>Salvar</button>
+    </form>
+    <button (click)="limparFormulario()">Limpar</button>
+</div>
+
+<app-detalhar *ngIf="pessoaSalva" [pessoa]="pessoaSalva" (alterarPessoa)="preencherFormulario($event)"></app-detalhar>
+
+<app-listar   *ngIf="arrayPessoas.length > 0" [pessoas]="arrayPessoas"></app-listar>
