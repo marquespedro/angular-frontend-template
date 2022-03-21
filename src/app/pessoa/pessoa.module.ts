@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ButtonModule } from 'primeng-lts/button';
 import { InputTextModule } from 'primeng-lts/inputtext';
-
+import {TableModule} from 'primeng/table';
 
 import { FormularioRoutingModule } from './pessoa-routing.module';
 
@@ -22,6 +22,7 @@ import { ListarPessoasComponent } from './listagem-pessoas/listar-pessoas.compon
 
     InputTextModule,
     ButtonModule,
+    TableModule,
     FormularioRoutingModule
   ]
 })

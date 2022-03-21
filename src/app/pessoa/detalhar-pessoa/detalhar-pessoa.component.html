@@ -1,6 +1,26 @@
-<div>
-    <h1>Detalhar Pessoa</h1>
-    <p>Nome : {{pessoa!.nome}} {{pessoa!.sobrenome}}</p>
-    <button (click)="emitirPessoa()">Emitir Evento</button>
-    <br/>
+<div *ngIf="pessoa">
+    <h1>Detalhe Pessoa</h1>
+
+    <div class="field grid">
+        <label class="col-fixed" style="width:100px">ID</label>
+        <div class="col">
+            <input type="text" pInputText value="{{pessoa.id}}" readonly> 
+        </div>
+    </div>
+    <div class="field grid">
+        <label class="col-fixed" style="width:100px">Nome</label>
+        <div class="col">
+            <input type="text" pInputText value="{{pessoa.nome}}" readonly>
+        </div>
+    </div>
+    <div class="field grid">
+        <label class="col-fixed" style="width:100px">Sobrenome</label>
+        <div class="col">
+            <input type="text" pInputText value="{{pessoa.sobrenome}}" readonly>
+        </div>
+    </div>
+    <p-button (click)="emitirPessoa()" label="Event Emmiter"></p-button>
+</div>
+<div *ngIf="!pessoa">
+    <h1>Pessoa não encontrada </h1>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PessoaService } from 'src/app/pessoa.service';
 import { Pessoa } from '../pessoa.model';
 
 
@@ -16,20 +17,24 @@ export class CadastroPessoaComponent implements OnInit {
 
   pessoaSalva: Pessoa | undefined | null;
   
-  arrayPessoas: any = [] = [];
+  pessoas: Pessoa [] = [];
 
-  constructor(private formBuilder: FormBuilder, private router : Router) {
+  constructor(private formBuilder: FormBuilder, 
+              private router : Router,
+              private pessoaService:PessoaService) {
   }
 
   ngOnInit(): void {
   }
 
   salvar() {
-    this.pessoaSalva = new Pessoa(this.formularioPessoa.value.nome, this.formularioPessoa.value.sobrenome);
-    this.pessoaSalva.id = 10;
-    this.arrayPessoas.push(this.pessoaSalva);
+    this.pessoaService.salvar(this.construirPessoa());
     this.formularioPessoa.reset();
-    this.router.navigate(['formulario/listar']);
+    this.router.navigate(['pessoa/listar']);
+  }
+
+  private construirPessoa(): Pessoa {
+    return new Pessoa(this.formularioPessoa.value.nome, this.formularioPessoa.value.sobrenome);
   }
 
   temCamposFormulario():boolean {
