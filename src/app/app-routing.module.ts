@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { DetalharComponent } from './detalhar/detalhar.component';
-import { FormularioComponent } from './formulario/formulario.component';
 
-const routes: Routes = [
-  { path: 'formulario', component: FormularioComponent },
-  { path: 'detalhar/:id', component: DetalharComponent },
-  { path: '', redirectTo: 'formulario', pathMatch: 'full' }
+
+const rotas: Routes = [
+  { path: 'formulario', loadChildren: () => import('./formulario/formulario.module').then(m => m.FormularioModule) },
+  { path: '', redirectTo: 'formulario', pathMatch: 'full' },
 ];
 @NgModule({
-  imports: [ReactiveFormsModule, RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(rotas)],
   exports: [RouterModule]
 })
 

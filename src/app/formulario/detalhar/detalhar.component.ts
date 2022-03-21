@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pessoa } from '../pessoa.model';
 
+
 @Component({
   selector: 'app-detalhar',
   templateUrl: './detalhar.component.html',

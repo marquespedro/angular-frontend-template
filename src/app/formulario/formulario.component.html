@@ -1,6 +1,6 @@
- VALUE : {{formularioPessoa.value | json}} 
- VALID: {{formularioPessoa.valid | json}} 
- TOUCHED : {{formularioPessoa.touched | json}} 
+VALUE : {{formularioPessoa.value | json}}
+VALID: {{formularioPessoa.valid | json}}
+TOUCHED : {{formularioPessoa.touched | json}}
 
 <h1>Formulário</h1>
 
@@ -22,8 +22,3 @@
         </div>
     </div>
 </form>
-
-
-<app-detalhar *ngIf="pessoaSalva" [pessoa]="pessoaSalva" (alterarPessoa)="preencherFormulario($event)"></app-detalhar>
-
-<app-listar *ngIf="arrayPessoas.length > 0" [pessoas]="arrayPessoas"></app-listar>

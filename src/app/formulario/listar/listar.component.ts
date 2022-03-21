@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Pessoa } from '../pessoa.model';
 
 @Component({
@@ -10,9 +11,11 @@ export class ListarComponent implements OnInit {
 
   @Input() pessoas: Pessoa[] = [];
 
-  constructor() { }
+  constructor( private activedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.pessoas = this.activedRoute.snapshot.queryParams as Pessoa[] ;
+    
   }
 
 }

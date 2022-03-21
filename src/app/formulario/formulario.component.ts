@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Pessoa } from './pessoa.model';
 
-import { Pessoa } from '../pessoa.model';
 
 @Component({
   selector: 'app-formulario',
@@ -13,9 +14,10 @@ export class FormularioComponent implements OnInit {
   formularioPessoa: FormGroup = this.construirFormulario();
 
   pessoaSalva: Pessoa | undefined | null;
+  
   arrayPessoas: any = [] = [];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router : Router) {
   }
 
   ngOnInit(): void {
@@ -26,6 +28,7 @@ export class FormularioComponent implements OnInit {
     this.pessoaSalva.id = 10;
     this.arrayPessoas.push(this.pessoaSalva);
     this.formularioPessoa.reset();
+    this.router.navigate(['formulario/listar']);
   }
 
   temCamposFormulario():boolean {
