@@ -4,11 +4,11 @@ import { Pessoa } from '../pessoa.model';
 
 
 @Component({
-  selector: 'app-detalhar',
-  templateUrl: './detalhar.component.html',
-  styleUrls: ['./detalhar.component.css']
+  selector: 'app-detalhar-pessoa',
+  templateUrl: './detalhar-pessoa.component.html',
+  styleUrls: ['./detalhar-pessoa.component.css']
 })
-export class DetalharComponent implements OnInit {
+export class DetalharPessoaComponent implements OnInit {
 
   constructor(private activedRoute: ActivatedRoute) { }
 

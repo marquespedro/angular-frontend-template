@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Pessoa } from '../pessoa.model';
 
 @Component({
-  selector: 'app-listar',
-  templateUrl: './listar.component.html',
-  styleUrls: ['./listar.component.css']
+  selector: 'app-listar-pessoas',
+  templateUrl:'./listar-pessoas.component.html',
+  styleUrls: ['./listar-pessoas.component.css']
 })
-export class ListarComponent implements OnInit {
+export class ListarPessoasComponent implements OnInit {
 
   @Input() pessoas: Pessoa[] = [];
 

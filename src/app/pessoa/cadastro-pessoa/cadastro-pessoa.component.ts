@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Pessoa } from './pessoa.model';
+import { Pessoa } from '../pessoa.model';
+
 
 
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.css']
+  selector: 'app-cadastro-pessoa',
+  templateUrl: './cadastro-pessoa.component.html',
+  styleUrls: ['./cadastro-pessoa.component.css']
 })
-export class FormularioComponent implements OnInit {
+export class CadastroPessoaComponent implements OnInit {
 
   formularioPessoa: FormGroup = this.construirFormulario();
 
