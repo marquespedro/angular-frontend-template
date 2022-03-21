@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { Pessoa } from '../pessoa.model';
 
 @Component({
@@ -27,8 +28,16 @@ export class FormularioComponent implements OnInit {
     this.formularioPessoa.reset();
   }
 
+  temCamposFormulario():boolean {
+    return this.formularioPessoa.get('nome')?.value ||  this.formularioPessoa.get('sobrenome')?.value;
+  }
+
   limparFormulario() {
     this.formularioPessoa.reset();
+  }
+
+  formularioInValido() : boolean{
+    return !this.formularioPessoa.valid;
   }
 
   preencherFormulario(value: any) {

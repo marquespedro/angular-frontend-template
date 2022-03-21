@@ -1,18 +1,29 @@
-<!-- {{formularioPessoa.value | json}} -->
+ VALUE : {{formularioPessoa.value | json}} 
+ VALID: {{formularioPessoa.valid | json}} 
+ TOUCHED : {{formularioPessoa.touched | json}} 
 
-<h1>Formulario Pessoa</h1>
+<h1>Formulário</h1>
 
-<div>
-    <form [formGroup]="formularioPessoa" (ngSubmit)="salvar()">
-        <label>Nome:</label>
-        <input formControlName="nome">
-        <label>Sobrenome:</label>
-        <input formControlName="sobrenome">
-        <button [disabled]="formularioPessoa.invalid" >Salvar</button>
-    </form>
-    <button (click)="limparFormulario()">Limpar</button>
-</div>
+<form [formGroup]="formularioPessoa" (ngSubmit)="salvar()">
+    <div class="formgroup-inline">
+        <div class="field">
+            <label for="firstname" class="sr-only">Nome</label>
+            <input id="firstname" type="text" formControlName="nome" pInputText placeholder="Nome">
+        </div>
+        <div class="field">
+            <label for="lastname" class="sr-only">Sobrenome</label>
+            <input id="lastname" type="text" formControlName="sobrenome" pInputText placeholder="Sobrenome">
+        </div>
+        <div class="field">
+            <p-button label="Salvar" type="submit" [disabled]="formularioInValido()"></p-button>
+        </div>
+        <div class="field">
+            <p-button (click)="limparFormulario()" *ngIf="temCamposFormulario()" label="Limpar"></p-button>
+        </div>
+    </div>
+</form>
+
 
 <app-detalhar *ngIf="pessoaSalva" [pessoa]="pessoaSalva" (alterarPessoa)="preencherFormulario($event)"></app-detalhar>
 
-<app-listar   *ngIf="arrayPessoas.length > 0" [pessoas]="arrayPessoas"></app-listar>
+<app-listar *ngIf="arrayPessoas.length > 0" [pessoas]="arrayPessoas"></app-listar>

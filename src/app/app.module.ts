@@ -8,6 +8,9 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { DetalharComponent } from './detalhar/detalhar.component';
 import { ListarComponent } from './listar/listar.component';
 
+import {InputTextModule} from 'primeng-lts/inputtext';
+import {ButtonModule} from 'primeng-lts/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,9 @@ import { ListarComponent } from './listar/listar.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InputTextModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
